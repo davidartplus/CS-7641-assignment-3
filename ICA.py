@@ -54,7 +54,7 @@ for dim in dims:
 
 kurt = pd.Series(kurt) 
 kurt.to_csv(out+'digits scree.csv')
-raise
+
 
 #%% Data for 2
 
@@ -78,7 +78,7 @@ gs = GridSearchCV(pipe,grid,verbose=10,cv=5)
 gs.fit(digitsX,digitsY)
 tmp = pd.DataFrame(gs.cv_results_)
 tmp.to_csv(out+'digits dim red.csv')
-raise
+
 #%% data for 3
 # Set this from chart 2 and dump, use clustering script to finish up
 dim = 45

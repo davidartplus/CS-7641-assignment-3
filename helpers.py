@@ -15,8 +15,24 @@ from sklearn.base import TransformerMixin,BaseEstimator
 import scipy.sparse as sps
 from scipy.linalg import pinv
 
-nn_arch= [(50,50),(50,),(25,),(25,25),(100,25,100)]
-nn_reg = [10**-x for x in range(1,5)]
+# nn_arch= [(50,50),(50,),(25,),(25,25),(100,25,100)]
+#nn_arch=[(124,)] optimal value
+#Madelon search parameters from assignment 1
+# >>> hidden_madelon
+# [(7,), (15,), (31,), (62,), (124,)]
+# >>> alphas
+# [10.0, 0.01, 1e-05, 1e-08]
+nn_arch=[(7,), (15,), (31,), (62,), (124,)]
+# nn_arch=[(2,)]
+
+# nn_reg = [10**-x for x in range(1,5)]
+#nn_reg= [0.01] optimal value
+nn_reg=[10.0, 0.01, 1e-05, 1e-08]
+# nn_reg=[0.01]
+
+#Wine search parameters from assignment 1
+# alphas2 = [10 ** -x for x in np.arange(-1, 8.01, 3)]
+# hidden_wine2 = [(h,) * l for l in [1, 2, 3] for h in [1, 3, 5, 8, 17, 29]]
 
 def cluster_acc(Y,clusterLabels):
     assert (Y.shape == clusterLabels.shape)
