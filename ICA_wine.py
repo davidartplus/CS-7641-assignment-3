@@ -17,7 +17,7 @@ wineY = wine['quality'].copy().values
 
 wineX = StandardScaler().fit_transform(wineX)
 
-clusters = [2, 5, 10, 15, 20, 25, 30, 35, 40]
+clusters = [2, 5, 10, 15]
 dims = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
 nn_arch=[(7,), (15,), (31,), (62,), (124,)]
@@ -47,7 +47,7 @@ gs = GridSearchCV(pipe, grid, verbose=10, cv=5)
 
 gs.fit(wineX, wineY)
 tmp = pd.DataFrame(gs.cv_results_)
-tmp.to_csv(out + 'Madelon dim red.csv')
+tmp.to_csv(out + 'Wine dim red.csv')
 
 # %% data for 3
 # Set this from chart 2 and dump, use clustering script to finish up
@@ -57,6 +57,6 @@ ica = FastICA(n_components=dim, random_state=10)
 wineX2 = ica.fit_transform(wineX)
 wine2 = pd.DataFrame(np.hstack((wineX2, np.atleast_2d(wineY).T)))
 cols = list(range(wine2.shape[1]))
-cols[-1] = 'Class'
+cols[-1] = 'quality'
 wine2.columns = cols
 wine2.to_hdf(out + 'datasets.hdf', 'wine', complib='blosc', complevel=9)

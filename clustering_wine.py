@@ -21,7 +21,7 @@ wineX = wine.drop('quality', 1).copy().values
 wineY = wine['quality'].copy().values
 
 # clusters = [2]
-clusters = [2, 5, 10, 15, 20, 25, 30, 35, 40]
+clusters = [2, 5, 10, 15]
 nn_arch=[(7,), (15,), (31,), (62,), (124,)]
 nn_reg=[10.0, 0.01, 1e-05, 1e-08]
 

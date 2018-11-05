@@ -56,7 +56,7 @@ tmp.to_csv(out + 'Madelon dim red.csv')
 
 # %% data for 3
 # Set this from chart 2 and dump, use clustering script to finish up
-dim = 10
+dim = 60
 rp = SparseRandomProjection(n_components=dim, random_state=5)
 
 madelonX2 = rp.fit_transform(madelonX)

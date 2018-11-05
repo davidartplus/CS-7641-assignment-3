@@ -49,7 +49,7 @@ if __name__ == '__main__':
 
     # %% data for 3
     # Set this from chart 2 and dump, use clustering script to finish up
-    dim = 20
+    dim = 15
     filtr = ImportanceSelect(rfc, dim)
 
     madelonX2 = filtr.fit_transform(madelonX, madelonY)
